@@ -106,8 +106,8 @@ Skills pass through four stages before injection:
 
 | Trust Level   | Runtime assignment                                           | Activation access                                        |
 |---------------|--------------------------------------------------------------|----------------------------------------------------------|
-| **Trusted**   | System and user skill roots                                  | Model can auto-select via `skill_activate`               |
-| **Installed** | Lower-trust skill bundles, including the tenant-shared root when enabled | Excluded from `skill_activate`. Available via explicit `$name` mention. |
+| **Trusted**   | Bundles in system and user roots by default; each bundle's effective trust is evaluated separately | Model can auto-select via `skill_activate`               |
+| **Installed** | Lower-trust bundles, including the tenant-shared root when enabled and a system/user-root bundle marked by install metadata | Excluded from `skill_activate`. Available via explicit `$name` mention. |
 
 <Warning>
 Review a skill before making it available. Activating a skill adds its instructions to the LLM context; skill trust governs prompt-content exposure, not tool permissions.
